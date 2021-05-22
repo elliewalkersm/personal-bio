@@ -5,34 +5,24 @@ import './App.scss';
 import NavBar from '../Components/NavBar';
 import Routes from '../helpers/Routes';
 import firebaseConfig from '../helpers/data/apiKeys';
+import getProjects from '../helpers/data/projectData';
 
 firebase.initializeApp(firebaseConfig);
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [projects, setProjects] = useState(null);
 
   useEffect(() => {
-    firebase.auth().onAuthStateChanged((authed) => {
-      if (authed) {
-        const userInfoObj = {
-          fullName: authed.displayName,
-          profileImage: authed.photoURL,
-          uid: authed.uid,
-          user: authed.email.split('@')[0]
-        };
-        setUser(userInfoObj);
-      } else if (user || user === null) {
-        setUser(false);
-      }
-    });
+    getProjects().then((response) => setProjects(response));
   }, []);
 
   return (
     <>
       <Router>
-        <NavBar user={user}/>
+        <NavBar/>
         <Routes
-        user={user}/>
+        projects={projects}
+        setProjects={setProjects}/>
       </Router>
     </>
   );

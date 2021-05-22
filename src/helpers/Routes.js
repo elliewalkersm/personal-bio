@@ -8,7 +8,7 @@ import NotFound from '../Views/NotFound';
 import Home from '../Views/Home';
 import Contact from '../Views/Contact';
 
-export default function Routes({ user }) {
+export default function Routes({ projects }) {
   return (
     <div>
       <Switch>
@@ -16,25 +16,21 @@ export default function Routes({ user }) {
         <Route
           exact
           path='/about'
-          user={user}
           component={About}
         />
         <Route
           exact
           path='/projects'
-          user={user}
-          component={Projects}
+          component={() => <Projects projects={projects}/>}
         />
         <Route
           exact
           path='/technologies'
-          user={user}
           component={Technologies}
         />
         <Route
           exact
           path='/contact'
-          user={user}
           component={Contact}
         />
         <Route path='*' component={NotFound}/>
@@ -44,5 +40,6 @@ export default function Routes({ user }) {
 }
 
 Routes.propTypes = {
-  user: PropTypes.any
+  user: PropTypes.any,
+  projects: PropTypes.array
 };

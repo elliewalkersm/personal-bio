@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Button,
   Card,
@@ -8,28 +8,22 @@ import {
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-const ProjectCard = ({
-  title,
-  imageUrl,
-  description,
-  setProject
-}) => {
-
+const ProjectCard = ({ projects }) => {
+  console.warn(projects);
   return (
-    <Card body>
-      <CardTitle tag="h5">{title}</CardTitle>
-      <CardImg src={imageUrl}/>
-      <CardText>{description}</CardText>
-      <Button color="primary">Deployed Link</Button>
-    </Card>
+    projects.map((project) => (
+      <Card key={project.firebaseKey}>
+        <CardTitle tag="h5">{project.title}</CardTitle>
+        <CardImg src={project.imageUrl}/>
+        <CardText>{project.description}</CardText>
+        <Button color="primary">Deployed Link</Button>
+      </Card>
+    ))
   );
 };
 
 ProjectCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  setProject: PropTypes.func
+  projects: PropTypes.array
 };
 
 export default ProjectCard;
