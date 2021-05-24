@@ -6,15 +6,43 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem
+  NavItem,
+  DropdownItem,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 // import { signInUser, signOutUser } from '../helpers/auth';
 
-const NavBar = () => {
+const NavBar = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+
+  const AdminView = () => (
+    <>
+      <UncontrolledDropdown nav inNavbar>
+        <DropdownToggle nav caret>
+          Options
+        </DropdownToggle>
+        <DropdownMenu right>
+          <DropdownItem>
+            Edit About
+          </DropdownItem>
+          <DropdownItem>
+            Edit Projects
+          </DropdownItem>
+          <DropdownItem>
+            Edit Technologies
+          </DropdownItem>
+          <DropdownItem>
+            Edit Contact
+          </DropdownItem>
+        </DropdownMenu>
+      </UncontrolledDropdown>
+    </>
+  );
 
   return (
     <div>
@@ -38,18 +66,7 @@ const NavBar = () => {
           <NavItem>
             <Link className="nav-link" to="/contact">Contact</Link>
           </NavItem>
-            {/* <NavItem>
-              {
-                user !== null
-                && <NavItem>
-                  {
-                    user
-                      ? <Button color='info' onClick={signOutUser}>Sign Out</Button>
-                      : <Button color='info' onClick={signInUser}>Sign In</Button>
-                  }
-                </NavItem>
-              }
-            </NavItem> */}
+          { user && AdminView()}
           </Nav>
         </Collapse>
       </Navbar>
