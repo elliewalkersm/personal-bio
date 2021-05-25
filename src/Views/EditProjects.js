@@ -1,9 +1,11 @@
 import React from 'react';
 
-export default function EditProjects() {
+function EditProjects() {
   return (
     <div>
-
+      <h2>Edit your projects here.</h2>
     </div>
   );
 }
+
+export default EditProjects;

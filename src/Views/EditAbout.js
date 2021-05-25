@@ -1,9 +1,11 @@
 import React from 'react';
 
-export default function EditAbout() {
+function EditAbout() {
   return (
     <div>
-
+      <h2>Edit your about info here.</h2>
     </div>
   );
 }
+
+export default EditAbout;

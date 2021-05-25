@@ -11,6 +11,7 @@ import EditAbout from '../Views/EditAbout';
 import EditProjects from '../Views/EditProjects';
 import EditTech from '../Views/EditTech';
 import EditContact from '../Views/EditContact';
+import Login from '../Views/login';
 
 // The PrivateRoute function is creating a private route and returing the specified route based on the props
 // We specify the specific props we want to use in the routeChecker and pass the rest with the spread
@@ -29,7 +30,7 @@ AdminRoute.propTypes = {
   user: PropTypes.any
 };
 
-export default function Routes({ projects }) {
+export default function Routes({ projects, admin }) {
   return (
     <div>
       <Switch>
@@ -56,23 +57,28 @@ export default function Routes({ projects }) {
         />
         <AdminRoute
           exact
-          path='/editabout'
-          component={() => <EditAbout/>}
+          path='/edit-about'
+          component={() => <EditAbout admin={admin}/>}
         />
         <AdminRoute
           exact
-          path='/editprojects'
-          component={() => <EditProjects/>}
+          path='/edit-projects'
+          component={() => <EditProjects admin={admin}/>}
         />
         <AdminRoute
           exact
-          path='/edittech'
-          component={() => <EditTech/>}
+          path='/edit-tech'
+          component={() => <EditTech admin={admin}/>}
         />
         <AdminRoute
           exact
-          path='/editcontact'
-          component={() => <EditContact/>}
+          path='/edit-contact'
+          component={() => <EditContact admin={admin}/>}
+        />
+        <Route
+          exact
+          path='/login'
+          component={() => <Login/>}
         />
         <Route path='*' component={NotFound}/>
       </Switch>
@@ -81,6 +87,6 @@ export default function Routes({ projects }) {
 }
 
 Routes.propTypes = {
-  user: PropTypes.any,
-  projects: PropTypes.array
+  projects: PropTypes.array,
+  admin: PropTypes.any
 };

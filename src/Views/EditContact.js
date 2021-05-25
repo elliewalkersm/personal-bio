@@ -1,9 +1,11 @@
 import React from 'react';
 
-export default function EditContact() {
+function EditContact() {
   return (
     <div>
-
+      <h2>Edit your contact info here.</h2>
     </div>
   );
 }
+
+export default EditContact;

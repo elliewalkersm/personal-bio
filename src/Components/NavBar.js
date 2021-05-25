@@ -13,10 +13,10 @@ import {
   DropdownMenu
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-// import { signInUser, signOutUser } from '../helpers/auth';
 
-const NavBar = ({ user }) => {
+const NavBar = ({ admin }) => {
   const [isOpen, setIsOpen] = useState(false);
+  console.warn(admin);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -66,7 +66,9 @@ const NavBar = ({ user }) => {
           <NavItem>
             <Link className="nav-link" to="/contact">Contact</Link>
           </NavItem>
-          { user && AdminView()}
+          <NavItem>
+            { admin && AdminView()}
+          </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
@@ -75,7 +77,7 @@ const NavBar = ({ user }) => {
 };
 
 NavBar.propTypes = {
-  user: PropTypes.any
+  admin: PropTypes.any
 };
 
 export default NavBar;

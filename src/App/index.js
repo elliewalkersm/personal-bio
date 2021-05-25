@@ -11,6 +11,18 @@ firebase.initializeApp(firebaseConfig);
 
 function App() {
   const [projects, setProjects] = useState(null);
+  const [admin, setAdmin] = useState(null);
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((authed) => {
+      if (authed && (authed.uid === process.env.REACT_APP_ADMIN_UID)) {
+        setAdmin(true);
+        console.warn(process.env.REACT_APP_ADMIN_UID, authed.uid, admin);
+      } else if (admin || admin === null) {
+        setAdmin(false);
+      }
+    });
+  }, []);
 
   useEffect(() => {
     getProjects().then((response) => setProjects(response));
@@ -22,7 +34,8 @@ function App() {
         <NavBar/>
         <Routes
         projects={projects}
-        setProjects={setProjects}/>
+        setProjects={setProjects}
+        admin={admin}/>
       </Router>
     </>
   );
