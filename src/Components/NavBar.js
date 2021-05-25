@@ -16,7 +16,6 @@ import PropTypes from 'prop-types';
 
 const NavBar = ({ admin }) => {
   const [isOpen, setIsOpen] = useState(false);
-  console.warn(admin);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -24,19 +23,19 @@ const NavBar = ({ admin }) => {
     <>
       <UncontrolledDropdown nav inNavbar>
         <DropdownToggle nav caret>
-          Options
+          Edit Views
         </DropdownToggle>
         <DropdownMenu right>
-          <DropdownItem>
+          <DropdownItem to="/edit-about">
             Edit About
           </DropdownItem>
-          <DropdownItem>
+          <DropdownItem to="/edit-projects">
             Edit Projects
           </DropdownItem>
-          <DropdownItem>
+          <DropdownItem to="/edit-tech">
             Edit Technologies
           </DropdownItem>
-          <DropdownItem>
+          <DropdownItem to="/edit-contact">
             Edit Contact
           </DropdownItem>
         </DropdownMenu>
@@ -66,9 +65,7 @@ const NavBar = ({ admin }) => {
           <NavItem>
             <Link className="nav-link" to="/contact">Contact</Link>
           </NavItem>
-          <NavItem>
             { admin && AdminView()}
-          </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
