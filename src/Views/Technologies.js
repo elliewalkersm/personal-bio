@@ -1,44 +1,74 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  CarouselIndicators,
+  CarouselCaption
+} from 'reactstrap';
 
-export default function Technologies() {
+const items = [
+  {
+    src: 'https://html5hive.org/wp-content/uploads/2014/06/js_800x800.jpg',
+    altText: 'Javascript',
+    caption: 'Javascript'
+  },
+  {
+    src: 'http://x7d4c5z5.stackpathcdn.com/wp-content/uploads/2014/10/css3.jpg',
+    altText: 'CSS',
+    caption: 'CSS'
+  },
+  {
+    src: 'https://hackr.io/tutorials/learn-html-5/logo/logo-html-5?ver=1587977020',
+    altText: 'HTML',
+    caption: 'HTML'
+  }
+];
+
+const Example = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [animating, setAnimating] = useState(false);
+
+  const next = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+    setActiveIndex(nextIndex);
+  };
+
+  const previous = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+    setActiveIndex(nextIndex);
+  };
+
+  const goToIndex = (newIndex) => {
+    if (animating) return;
+    setActiveIndex(newIndex);
+  };
+
+  const slides = items.map((item) => (
+      <CarouselItem
+        onExiting={() => setAnimating(true)}
+        onExited={() => setAnimating(false)}
+        key={item.src}
+      >
+        <img src={item.src} alt={item.altText} />
+        <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+      </CarouselItem>
+  ));
+
   return (
-    <div>
-      <h1>Technologies</h1>
-      <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
-      <div className="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
-      <div className="carousel-inner">
-        <div className="carousel-item active">
-          <img src="https://html5hive.org/wp-content/uploads/2014/06/js_800x800.jpg" className="d-block w-100" alt="..."/>
-          <div className="carousel-caption d-none d-md-block">
-            <h5>Javascript</h5>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <img src="http://x7d4c5z5.stackpathcdn.com/wp-content/uploads/2014/10/css3.jpg" className="d-block w-100" alt="..."/>
-          <div className="carousel-caption d-none d-md-block">
-            <h5>CSS</h5>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <img src="https://hackr.io/tutorials/learn-html-5/logo/logo-html-5?ver=1587977020" className="d-block w-100" alt="..."/>
-          <div className="carousel-caption d-none d-md-block">
-            <h5>HTML</h5>
-          </div>
-        </div>
-      </div>
-      <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Next</span>
-      </button>
-      </div>
-    </div>
+    <Carousel
+      activeIndex={activeIndex}
+      next={next}
+      previous={previous}
+    >
+      <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
+      {slides}
+      <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
+      <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+    </Carousel>
   );
-}
+};
+
+export default Example;
