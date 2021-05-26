@@ -38,7 +38,7 @@ export default function Routes({ projects, admin, setProjects }) {
         <Route
           exact
           path='/projects'
-          component={() => <Projects projects={projects}/>}
+          component={() => <Projects projects={projects} admin={admin} setProjects={setProjects}/>}
         />
         <Route
           exact

@@ -2,16 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ProjectCard from '../Components/ProjectCard';
 
-function Projects({ projects }) {
-  return (
-    <div>
-      <ProjectCard projects={projects}/>
+function Projects({ projects, admin, setProjects }) {
+  return projects.map((project) => (
+    <div key={project.firebaseKey}>
+      <ProjectCard
+      project={project}
+      admin={admin}
+      setProjects={setProjects}/>
     </div>
-  );
+  ));
 }
 
 Projects.propTypes = {
-  projects: PropTypes.array
+  projects: PropTypes.array,
+  admin: PropTypes.any,
+  setProjects: PropTypes.func
 };
 
 export default Projects;

@@ -22,7 +22,7 @@ const addProject = (project) => new Promise((resolve, reject) => {
 });
 
 const updateProject = (projects) => new Promise((resolve, reject) => {
-  axios.patch(`${dbURL}/projects/${projects.id}.json`, projects)
+  axios.patch(`${dbURL}/projects/${projects.firebaseKey}.json`, projects)
     .then(() => getProjects().then(resolve))
     .catch((error) => reject(error));
 });

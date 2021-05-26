@@ -11,20 +11,22 @@ import { addProject, updateProject } from '../helpers/data/projectData';
 
 function ProjectForm({
   formTitle,
-  projects,
+  project,
   setProjects
 }) {
-  const [project, setProject] = useState({
-    title: projects?.title || '',
-    imageUrl: projects?.imageUrl || '',
-    description: projects?.description || '',
-    id: projects?.id || null
+  const [projectInput, setProjectInput] = useState({
+    title: project?.title || '',
+    imageUrl: project?.imageUrl || '',
+    description: project?.description || '',
+    firebaseKey: project?.firebaseKey || null,
+    deployedLink: project?.deployedLink || '',
+    githubLink: project?.githubLink || ''
   });
 
   const history = useHistory();
 
   const handleInputChange = (e) => {
-    setProject((prevState) => ({
+    setProjectInput((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value
     }));
@@ -32,13 +34,13 @@ function ProjectForm({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (project.id) {
-      updateProject(project).then((projectsArray) => {
-        setProjects(projectsArray);
+    if (projectInput.firebaseKey) {
+      updateProject(projectInput).then((projectsArray) => {
+        setProjectInput(projectsArray);
         history.push('/projects');
       });
     } else {
-      addProject(project).then((response) => {
+      addProject(projectInput).then((response) => {
         setProjects(response);
         history.push('/projects');
       });
@@ -58,7 +60,7 @@ function ProjectForm({
           name='title'
           type='text'
           placeholder='Project Title'
-          value={project.title}
+          value={projectInput.title}
           onChange={handleInputChange}
         >
         </Input>
@@ -67,7 +69,7 @@ function ProjectForm({
           name='imageUrl'
           type='text'
           placeholder='Image URL'
-          value={project.imageUrl}
+          value={projectInput.imageUrl}
           onChange={handleInputChange}
         >
         </Input>
@@ -76,9 +78,25 @@ function ProjectForm({
           name='description'
           type='text'
           placeholder='Project Description'
-          value={project.description}
+          value={projectInput.description}
           onChange={handleInputChange}>
         </Input>
+        <Label></Label>
+        <Input
+          name='deployedLink'
+          type='url'
+          placeholder='Project deployedLink'
+          value={projectInput.deployedLink}
+          onChange={handleInputChange}
+        ></Input>
+        <Label></Label>
+        <Input
+          name='githubLink'
+          type='url'
+          placeholder='Project githubLink'
+          value={projectInput.githubLink}
+          onChange={handleInputChange}
+        ></Input>
         <Button className="project-form-submit-btn mt-4" color='success' size="sm" type='submit'>Submit</Button>
       </Form>
     </div>
@@ -88,7 +106,7 @@ function ProjectForm({
 ProjectForm.propTypes = {
   formTitle: PropTypes.string.isRequired,
   setProjects: PropTypes.func,
-  projects: PropTypes.array
+  project: PropTypes.object
 };
 
 export default ProjectForm;
