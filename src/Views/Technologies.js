@@ -22,6 +22,36 @@ const items = [
     src: 'https://hackr.io/tutorials/learn-html-5/logo/logo-html-5?ver=1587977020',
     altText: 'HTML',
     caption: 'HTML'
+  },
+  {
+    src: 'https://www.freecodecamp.org/news/content/images/2020/02/Ekran-Resmi-2019-11-18-18.08.13.png',
+    altText: 'React',
+    caption: 'React'
+  },
+  {
+    src: 'https://blog.alexdevero.com/wp-content/uploads/2015/03/sass-logo.jpg',
+    altText: 'SASS',
+    caption: 'SASS'
+  },
+  {
+    src: 'http://getbootstrap.com/docs/4.0/assets/brand/bootstrap-social.png',
+    altText: 'Bootstrap',
+    caption: 'Bootstrap'
+  },
+  {
+    src: 'https://firebase.google.com/images/social.png',
+    altText: 'Firebase',
+    caption: 'Firebase'
+  },
+  {
+    src: 'https://blog.qualys.com/wp-content/uploads/2020/10/postman.jpg',
+    altText: 'Postman',
+    caption: 'Postman'
+  },
+  {
+    src: 'https://pbs.twimg.com/profile_images/1021778918842531840/FBVP_uDf.jpg',
+    altText: 'Netlify',
+    caption: 'Netlify'
   }
 ];
 
