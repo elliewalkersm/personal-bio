@@ -1,7 +1,6 @@
-# React Template
+Deployed Link: https://elliejaymeswalker.netlify.app/
+Github Repo: https://github.com/elliewalkersm/personal-bio
+Project Board: https://github.com/elliewalkersm/personal-bio/projects/1
 
-**Use this template to get up and running quickly on projects.**
+Screenshots:
 
-This is just like the webpack template. Use it, create the repo, connect it to your local and `npm i`.
-
-- [Steps to deploy](https://github.com/nss-nightclass-projects/REACT-Deployment-Netlify)
