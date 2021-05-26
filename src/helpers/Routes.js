@@ -5,12 +5,8 @@ import About from '../Views/About';
 import Projects from '../Views/Projects';
 import Technologies from '../Views/Technologies';
 import NotFound from '../Views/NotFound';
-import Home from '../Views/Home';
 import Contact from '../Views/Contact';
-import EditAbout from '../Views/EditAbout';
-import EditProjects from '../Views/EditProjects';
-import EditTech from '../Views/EditTech';
-import EditContact from '../Views/EditContact';
+import AddProjects from '../Views/AddProjects';
 import Login from '../Views/login';
 
 // The PrivateRoute function is creating a private route and returing the specified route based on the props
@@ -30,14 +26,13 @@ AdminRoute.propTypes = {
   admin: PropTypes.any
 };
 
-export default function Routes({ projects, admin }) {
+export default function Routes({ projects, admin, setProjects }) {
   return (
     <div>
       <Switch>
-        <Route exact path='/' component={Home} />
         <Route
           exact
-          path='/about'
+          path='/'
           component={About}
         />
         <Route
@@ -57,26 +52,11 @@ export default function Routes({ projects, admin }) {
         />
         <AdminRoute
           exact
-          path='/edit-about'
-          component={() => <EditAbout admin={admin}/>}
+          path='/add-projects'
+          component={() => <AddProjects
           admin={admin}
-        />
-        <AdminRoute
-          exact
-          path='/edit-projects'
-          component={() => <EditProjects admin={admin}/>}
-          admin={admin}
-        />
-        <AdminRoute
-          exact
-          path='/edit-tech'
-          component={() => <EditTech admin={admin}/>}
-          admin={admin}
-        />
-        <AdminRoute
-          exact
-          path='/edit-contact'
-          component={() => <EditContact admin={admin}/>}
+          projects={projects}
+          setProjects={setProjects}/>}
           admin={admin}
         />
         <Route
@@ -92,5 +72,6 @@ export default function Routes({ projects, admin }) {
 
 Routes.propTypes = {
   projects: PropTypes.array,
-  admin: PropTypes.any
+  admin: PropTypes.any,
+  setProjects: PropTypes.func
 };

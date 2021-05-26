@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './App.scss';
 import NavBar from '../Components/NavBar';
 import Routes from '../helpers/Routes';
-import getProjects from '../helpers/data/projectData';
+import { getProjects } from '../helpers/data/projectData';
 
 function App() {
   const [projects, setProjects] = useState(null);

@@ -1,9 +1,10 @@
 import React from 'react';
+import ProjectForm from '../Components/ProjectForm';
 
 function EditProjects() {
   return (
     <div>
-      <h2>Edit your projects here.</h2>
+      <ProjectForm/>
     </div>
   );
 }

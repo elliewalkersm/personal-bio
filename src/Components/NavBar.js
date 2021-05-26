@@ -6,11 +6,7 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  DropdownItem,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu
+  NavItem
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 
@@ -21,25 +17,9 @@ const NavBar = ({ admin }) => {
 
   const AdminView = () => (
     <>
-      <UncontrolledDropdown nav inNavbar>
-        <DropdownToggle nav caret>
-          Edit Views
-        </DropdownToggle>
-        <DropdownMenu right>
-          <DropdownItem to="/edit-about">
-            Edit About
-          </DropdownItem>
-          <DropdownItem to="/edit-projects">
-            Edit Projects
-          </DropdownItem>
-          <DropdownItem to="/edit-tech">
-            Edit Technologies
-          </DropdownItem>
-          <DropdownItem to="/edit-contact">
-            Edit Contact
-          </DropdownItem>
-        </DropdownMenu>
-      </UncontrolledDropdown>
+      <NavItem>
+        <Link className="nav-link" to="/add-projects">Add Projects</Link>
+      </NavItem>
     </>
   );
 
@@ -51,12 +31,6 @@ const NavBar = ({ admin }) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
           <NavItem>
-            <Link className="nav-link" to="/">Home</Link>
-          </NavItem>
-          <NavItem>
-            <Link className="nav-link" to="/about">About</Link>
-          </NavItem>
-          <NavItem>
             <Link className="nav-link" to="/projects">Projects</Link>
           </NavItem>
           <NavItem>
@@ -65,7 +39,7 @@ const NavBar = ({ admin }) => {
           <NavItem>
             <Link className="nav-link" to="/contact">Contact</Link>
           </NavItem>
-            { admin && AdminView()}
+            { admin && AdminView() }
           </Nav>
         </Collapse>
       </Navbar>
