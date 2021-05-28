@@ -4,6 +4,7 @@ export default function About() {
   return (
     <div>
       <h1>Alitte About Me</h1>
+      <img src="https://lh3.googleusercontent.com/a-/AOh14GhIRWbuEnNPWW304eod4cmGXjWRDJGG7TppO0t_Uw=s192-c-rg-br100"/>
       <p>Hey there! My name is Ellie and I am new to the software world. I come from the theater world were I was previously working
         as a stage manager. When my industry was shutdown in spring of 2020, I was completely lost on what I would do for work. I made the decision to
         signup for a 3 week bootcamp at the Nashville Software School in the fall of 2020, thinking it would just

@@ -7,7 +7,7 @@ import Routes from '../helpers/Routes';
 import { getProjects } from '../helpers/data/projectData';
 
 function App() {
-  const [projects, setProjects] = useState(null);
+  const [projects, setProjects] = useState([]);
   const [admin, setAdmin] = useState(null);
 
   useEffect(() => {

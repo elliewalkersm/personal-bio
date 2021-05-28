@@ -22,13 +22,13 @@ const addProject = (project) => new Promise((resolve, reject) => {
 });
 
 const updateProject = (projects) => new Promise((resolve, reject) => {
-  axios.patch(`${dbURL}/projects/${projects.firebaseKey}.json`, projects)
+  axios.patch(`${dbURL}/projects/${projects.id}.json`, projects)
     .then(() => getProjects().then(resolve))
     .catch((error) => reject(error));
 });
 
-const deleteProject = (firebaseKey) => new Promise((resolve, reject) => {
-  axios.delete(`${dbURL}/projects/${firebaseKey}.json`)
+const deleteProject = (id) => new Promise((resolve, reject) => {
+  axios.delete(`${dbURL}/projects/${id}.json`)
     .then(() => getProjects().then((response) => resolve(response)))
     .catch((error) => reject(error));
 });

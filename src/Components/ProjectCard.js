@@ -28,8 +28,8 @@ const ProjectCard = ({ project, setProjects, admin }) => {
 
   const EditCard = (fbKey) => (
     <>
-      <Button project-btn color="light" size="sm" onClick={() => handleClick(fbKey, 'delete')}><i className="fas fa-trash"></i></Button>
-      <Button project-btn color="light" size="sm" onClick={() => handleClick(fbKey, 'edit')}>
+      <Button color="light" size="sm" onClick={() => handleClick(fbKey, 'delete')}><i className="fas fa-trash"></i></Button>
+      <Button color="light" size="sm" onClick={() => handleClick(fbKey, 'edit')}>
         { editing ? 'Close Form' : 'Edit Project'}
       </Button>
         {
@@ -43,15 +43,16 @@ const ProjectCard = ({ project, setProjects, admin }) => {
   );
 
   return (
-      <Card className="project-card" key={project.firebaseKey}>
+      <Card className="project-card" key={project.id}>
       <CardBody>
         <CardTitle className="card-title mt-4 mb-3" tag="h5">{project.title}</CardTitle>
         <CardImg top img-fluid="true" width="100%" src={project.imageUrl} alt="Card image cap" />
         <CardText className="card-text mb-4" >{project.description}</CardText>
         <hr></hr>
         <a href={project.deployedLink}>Deployed Link</a>
+        <hr></hr>
         <a href={project.githubLink}>Github Link</a>
-        { admin ? EditCard(project.firebaseKey) : ''}
+        { admin ? EditCard(project.id) : ''}
       </CardBody>
       </Card>
   );

@@ -9,47 +9,47 @@ import {
 
 const items = [
   {
-    src: 'https://html5hive.org/wp-content/uploads/2014/06/js_800x800.jpg',
+    src: 'https://softwaretap.com/wp-content/uploads/2020/09/JavaScript-2.jpg',
     altText: 'Javascript',
     caption: 'Javascript'
   },
   {
-    src: 'http://x7d4c5z5.stackpathcdn.com/wp-content/uploads/2014/10/css3.jpg',
+    src: 'https://cdn-media-1.freecodecamp.org/images/1*H0IBb9kvGI3eIuL1sGmWug.jpeg',
     altText: 'CSS',
     caption: 'CSS'
   },
   {
-    src: 'https://hackr.io/tutorials/learn-html-5/logo/logo-html-5?ver=1587977020',
+    src: 'https://flywheel.neocities.org/img/HTML5.jpg',
     altText: 'HTML',
     caption: 'HTML'
   },
   {
-    src: 'https://www.freecodecamp.org/news/content/images/2020/02/Ekran-Resmi-2019-11-18-18.08.13.png',
+    src: 'https://lh3.googleusercontent.com/proxy/BNL-3YWAyOmDK4l_mC1akLuDCUnB2e1gGsYLP9FAzQeMHDLCX4m1pbjiI1VslbMoOkSJXIn3UlV_zSw647snsYaGxrtPs23IUJHh5ZZlauFnDH6k28y3sUO1Y9U6',
     altText: 'React',
     caption: 'React'
   },
   {
-    src: 'https://blog.alexdevero.com/wp-content/uploads/2015/03/sass-logo.jpg',
+    src: 'https://miro.medium.com/max/600/1*wlQV5JRDIOlwqj1Ds8J4qQ.jpeg',
     altText: 'SASS',
     caption: 'SASS'
   },
   {
-    src: 'http://getbootstrap.com/docs/4.0/assets/brand/bootstrap-social.png',
+    src: 'https://www.pragimtech.com/wp-content/uploads/2019/04/bootstrap.jpg',
     altText: 'Bootstrap',
     caption: 'Bootstrap'
   },
   {
-    src: 'https://firebase.google.com/images/social.png',
+    src: 'https://softapptechnologies.com/images/c6.png',
     altText: 'Firebase',
     caption: 'Firebase'
   },
   {
-    src: 'https://blog.qualys.com/wp-content/uploads/2020/10/postman.jpg',
+    src: 'https://miro.medium.com/max/600/1*Hi4zRrOGJfbvkjGsTIpnbQ.jpeg',
     altText: 'Postman',
     caption: 'Postman'
   },
   {
-    src: 'https://pbs.twimg.com/profile_images/1021778918842531840/FBVP_uDf.jpg',
+    src: 'https://thomasdeneuville.com/wp-content/uploads/2020/02/netifly-full-logo-light.png',
     altText: 'Netlify',
     caption: 'Netlify'
   }
@@ -82,8 +82,8 @@ const Example = () => {
         onExited={() => setAnimating(false)}
         key={item.src}
       >
-        <img src={item.src} alt={item.altText} />
-        <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+        <img className="tech-image" src={item.src} alt={item.altText} width="100%" height="100%"/>
+        <CarouselCaption captionText=""/>
       </CarouselItem>
   ));
 
