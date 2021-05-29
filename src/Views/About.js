@@ -1,6 +1,5 @@
 import React from 'react';
 import { Jumbotron } from 'reactstrap';
-import { Link } from 'react-router-dom';
 
 export default function About() {
   return (
@@ -23,7 +22,6 @@ export default function About() {
         </p>
       </Jumbotron>
     </div>
-    <Link to="/login">Admin</Link>
     </div>
   );
 }
