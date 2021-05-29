@@ -66,7 +66,7 @@ const ProjectCard = ({ project, setProjects, admin }) => {
           alt='Card image cap'
         />
         <CardText className='card-text mb-4'>{project.description}</CardText>
-        <hr></hr>
+        <hr className="break"></hr>
         <div className='project-links'>
           <a href={project.deployedLink}>Deployed Link</a>
           <a className='github-link' href={project.githubLink}>
