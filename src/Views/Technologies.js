@@ -24,7 +24,7 @@ const items = [
     caption: 'HTML'
   },
   {
-    src: 'https://lh3.googleusercontent.com/proxy/BNL-3YWAyOmDK4l_mC1akLuDCUnB2e1gGsYLP9FAzQeMHDLCX4m1pbjiI1VslbMoOkSJXIn3UlV_zSw647snsYaGxrtPs23IUJHh5ZZlauFnDH6k28y3sUO1Y9U6',
+    src: 'https://lh3.googleusercontent.com/proxy/-6OQaEOKFfLguYM5JWqCPXVtx8oH_0MiiD5rzyEYzWEXUiSRpuR-ffr2SmFRncnvaXiX-Fna09mdTnIdk784m82aVvxXQpuUH0tRiYuEyVUigbfIhvOG-Hzt_6jM',
     altText: 'React',
     caption: 'React'
   },

@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function Contact() {
   return (
-    <div>
+    <div className="contact-me">
       <h2>Contact Me!</h2>
-      <h4>elliejaymeswalker@gmail.com</h4>
+      <a href="mailto: elliewalkersm@gmail.com">elliejaymeswalker@gmail.com</a>
     </div>
   );
 }
