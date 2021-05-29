@@ -7,7 +7,7 @@ import Technologies from '../Views/Technologies';
 import NotFound from '../Views/NotFound';
 import Contact from '../Views/Contact';
 import AddProjects from '../Views/AddProjects';
-import Login from '../Views/login';
+import Login from '../Views/Login';
 
 // The PrivateRoute function is creating a private route and returing the specified route based on the props
 // We specify the specific props we want to use in the routeChecker and pass the rest with the spread
