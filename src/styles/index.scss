@@ -1,6 +1,68 @@
-@import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import 'variables';
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
 
 body {
-  background-color: $favColor;
+  background-color: black;
+  color: $fontColor;
+}
+
+.about-container {
+  width: 40em;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.about-img {
+  border-radius: 50%;
+}
+
+.card {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  text-align: center;
+  background-color: black;
+}
+
+.project-links {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-wrap {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  width: 25em;
+}
+
+.contact-me {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.card-text {
+  margin-top: 15px;
+}
+
+.navbar {
+  background-color: white;
+}
+
+.about-me-bio {
+  color: black;
+}
+
+.project-card {
+  border-style: solid 2px;
+  border-color: white;
+}
+
+.break {
+  color: white;
 }
