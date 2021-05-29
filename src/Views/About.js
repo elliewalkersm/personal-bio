@@ -7,7 +7,7 @@ export default function About() {
     <div className="wrapper">
     <div className="about-container">
       <h1>Alitte About Me</h1>
-      <Link to="/login"/>
+      <Link to="/login">Login</Link>
       <Jumbotron className="about-content">
         <img
           className="about-img p-2"
