@@ -12,13 +12,13 @@ import { addProject, updateProject } from '../helpers/data/projectData';
 function ProjectForm({
   formTitle,
   project,
-  setProjects
+  setProjects,
 }) {
   const [projectInput, setProjectInput] = useState({
     title: project?.title || '',
     imageUrl: project?.imageUrl || '',
     description: project?.description || '',
-    firebaseKey: project?.firebaseKey || null,
+    id: project?.id || null,
     deployedLink: project?.deployedLink || '',
     githubLink: project?.githubLink || ''
   });
@@ -34,7 +34,7 @@ function ProjectForm({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (projectInput.firebaseKey) {
+    if (projectInput.id) {
       updateProject(projectInput).then((projectsArray) => {
         setProjectInput(projectsArray);
         history.push('/projects');
@@ -106,7 +106,7 @@ function ProjectForm({
 ProjectForm.propTypes = {
   formTitle: PropTypes.string.isRequired,
   setProjects: PropTypes.func,
-  project: PropTypes.object
+  project: PropTypes.object,
 };
 
 export default ProjectForm;

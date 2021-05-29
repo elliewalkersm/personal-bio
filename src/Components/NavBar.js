@@ -25,11 +25,11 @@ const NavBar = ({ admin }) => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
+      <Navbar className="navbar" color="light" light expand="md">
         <NavbarBrand href="/">EJW</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+          <Nav className="mr-auto" color="light" navbar>
           <NavItem>
             <Link className="nav-link" to="/projects">Projects</Link>
           </NavItem>
