@@ -62,7 +62,7 @@ export default function Routes({ projects, admin, setProjects }) {
         <Route
           exact
           path='/login'
-          component={() => <Login/>}
+          component={Login}
         />
         <Route path='*' component={NotFound}/>
       </Switch>

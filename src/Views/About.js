@@ -1,11 +1,13 @@
 import React from 'react';
 import { Jumbotron } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 export default function About() {
   return (
     <div className="wrapper">
     <div className="about-container">
       <h1>Alitte About Me</h1>
+      <Link to="/login"/>
       <Jumbotron className="about-content">
         <img
           className="about-img p-2"
